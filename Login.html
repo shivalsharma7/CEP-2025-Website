@@ -332,11 +332,12 @@
                 return;
             }
             
-            // In a real application, you would send this to a server
-            console.log('Login attempt:', {
+            const user = {
                 username: username,
                 mobile: countryCode + mobile
-            });
+            };
+
+            localStorage.setItem('UserDetails', JSON.stringfy(user));
             
             alert('Login successful! (This is a demo)');
         });
