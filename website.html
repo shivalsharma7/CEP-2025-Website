@@ -1,0 +1,1717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Health Awareness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .floating-animation {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); }
+            50% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.8); }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+        
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .scale-in {
+            animation: scaleIn 0.5s ease-out;
+        }
+        
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: all 0.5s ease;
+        }
+        
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(10deg) translateZ(20px);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 10px rgba(34, 197, 94, 0.8), 0 0 20px rgba(34, 197, 94, 0.6), 0 0 30px rgba(34, 197, 94, 0.4);
+        }
+        
+        .morphing-bg {
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+        
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particle-float 8s infinite linear;
+        }
+        
+        @keyframes particle-float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        .typing-animation {
+            overflow: hidden;
+            border-right: 3px solid rgba(255, 255, 255, 0.75);
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: rgba(255, 255, 255, 0.75); }
+        }
+        
+        .health-tip-popup {
+            animation: slideInUp 0.5s ease-out;
+        }
+        
+        @keyframes slideInUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .interactive-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .interactive-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .progress-ring {
+            transition: stroke-dasharray 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        
+        .quiz-option {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(34, 197, 94, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .quiz-option:hover::before {
+            left: 100%;
+        }
+        
+        .loading-dots {
+            display: inline-block;
+        }
+        
+        .loading-dots::after {
+            content: '';
+            animation: loading-dots 1.5s infinite;
+        }
+        
+        @keyframes loading-dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen text-white overflow-x-hidden">
+    <!-- Animated Background Particles -->
+    <div id="particles-container" class="fixed inset-0 pointer-events-none z-0"></div>
+    
+    <!-- Header -->
+    <header class="glass-effect sticky top-0 z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-3 slide-in-left">
+                    <div class="w-12 h-12 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-2xl flex items-center justify-center pulse-glow">
+                        <span class="text-white font-bold text-xl">🏥</span>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">HealthCare+</h1>
+                        <p class="text-xs text-gray-300">Premium Health Solutions</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6 slide-in-right">
+                    <a href="#home" class="nav-link relative text-gray-300 hover:text-emerald-400 font-medium transition-all duration-300 group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="nav-link relative text-gray-300 hover:text-emerald-400 font-medium transition-all duration-300 group">
+                        Contact
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+                <button class="md:hidden text-gray-300 hover:text-emerald-400 transition-colors" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-effect border-t border-white/10">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-3 text-gray-300 hover:text-emerald-400 transition-colors">Home</a>
+                <a href="#contact" class="block py-3 text-gray-300 hover:text-emerald-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="flex relative z-10">
+        <!-- Left Sidebar -->
+        <aside class="hidden lg:block w-80 glass-effect min-h-screen border-r border-white/10 slide-in-left">
+            <div class="p-8">
+                <h3 class="text-xl font-bold text-white mb-6 neon-text">Quick Health Topics</h3>
+                <ul class="space-y-4">
+                    <li><a href="#nutrition" class="flex items-center space-x-3 text-gray-300 hover:text-emerald-400 transition-all duration-300 p-3 rounded-xl hover:bg-white/5 group">
+                        <span class="text-2xl group-hover:scale-110 transition-transform">🥗</span>
+                        <div>
+                            <span class="font-medium">Nutrition</span>
+                            <p class="text-xs text-gray-400">Balanced diet tips</p>
+                        </div>
+                    </a></li>
+                    <li><a href="#exercise" class="flex items-center space-x-3 text-gray-300 hover:text-emerald-400 transition-all duration-300 p-3 rounded-xl hover:bg-white/5 group">
+                        <span class="text-2xl group-hover:scale-110 transition-transform">🏃‍♂️</span>
+                        <div>
+                            <span class="font-medium">Exercise</span>
+                            <p class="text-xs text-gray-400">Fitness routines</p>
+                        </div>
+                    </a></li>
+                    <li><a href="#mental-health" class="flex items-center space-x-3 text-gray-300 hover:text-emerald-400 transition-all duration-300 p-3 rounded-xl hover:bg-white/5 group">
+                        <span class="text-2xl group-hover:scale-110 transition-transform">🧠</span>
+                        <div>
+                            <span class="font-medium">Mental Health</span>
+                            <p class="text-xs text-gray-400">Wellness strategies</p>
+                        </div>
+                    </a></li>
+                    <li><a href="#hygiene" class="flex items-center space-x-3 text-gray-300 hover:text-emerald-400 transition-all duration-300 p-3 rounded-xl hover:bg-white/5 group">
+                        <span class="text-2xl group-hover:scale-110 transition-transform">🧼</span>
+                        <div>
+                            <span class="font-medium">Hygiene</span>
+                            <p class="text-xs text-gray-400">Clean habits</p>
+                        </div>
+                    </a></li>
+                    <li><a href="#sleep" class="flex items-center space-x-3 text-gray-300 hover:text-emerald-400 transition-all duration-300 p-3 rounded-xl hover:bg-white/5 group">
+                        <span class="text-2xl group-hover:scale-110 transition-transform">😴</span>
+                        <div>
+                            <span class="font-medium">Sleep Health</span>
+                            <p class="text-xs text-gray-400">Rest optimization</p>
+                        </div>
+                    </a></li>
+                    <li><a href="#prevention" class="flex items-center space-x-3 text-gray-300 hover:text-emerald-400 transition-all duration-300 p-3 rounded-xl hover:bg-white/5 group">
+                        <span class="text-2xl group-hover:scale-110 transition-transform">🛡️</span>
+                        <div>
+                            <span class="font-medium">Prevention</span>
+                            <p class="text-xs text-gray-400">Health protection</p>
+                        </div>
+                    </a></li>
+                </ul>
+                
+                <!-- Health Stats Widget -->
+                <div class="mt-8 p-6 glass-effect rounded-2xl border border-white/10">
+                    <h4 class="text-lg font-semibold text-white mb-4">Your Health Score</h4>
+                    <div class="relative w-24 h-24 mx-auto mb-4">
+                        <svg class="w-24 h-24" viewBox="0 0 36 36">
+                            <path class="text-gray-600" stroke="currentColor" stroke-width="3" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            <path class="text-emerald-400 progress-ring" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                        </svg>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="text-2xl font-bold text-emerald-400">75%</span>
+                        </div>
+                    </div>
+                    <p class="text-center text-gray-300 text-sm">Keep up the great work!</p>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1">
+            <!-- Homepage Section -->
+            <section id="home" class="morphing-bg py-32 px-4 relative overflow-hidden">
+                <div class="max-w-6xl mx-auto text-center relative z-10">
+                    <div class="floating-animation">
+                        <h2 class="text-7xl font-black mb-6 neon-text typing-animation">Your Health, Our Priority</h2>
+                    </div>
+                    <p class="text-2xl mb-12 text-white/90 fade-in-up max-w-3xl mx-auto">Revolutionizing Community Health Awareness with Cutting-Edge Technology and Personalized Care</p>
+                    <!-- Navigation Buttons Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto fade-in-up">
+                        <button onclick="navigateToSection('health-info')" class="group relative px-8 py-6 glass-effect border border-emerald-400/30 text-white rounded-2xl font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 interactive-hover shadow-2xl backdrop-blur-lg hover:border-emerald-400/50">
+                            <div class="flex items-center justify-center space-x-3">
+                                <span class="text-3xl group-hover:scale-110 transition-transform">🧬</span>
+                                <span class="relative z-10">Health Info</span>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                        </button>
+                        
+                        <button onclick="navigateToSection('bmi-calculator')" class="group relative px-8 py-6 glass-effect border border-purple-400/30 text-white rounded-2xl font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 interactive-hover shadow-2xl backdrop-blur-lg hover:border-purple-400/50">
+                            <div class="flex items-center justify-center space-x-3">
+                                <span class="text-3xl group-hover:scale-110 transition-transform">⚖️</span>
+                                <span class="relative z-10">BMI Calculator</span>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                        </button>
+                        
+                        <button onclick="navigateToSection('lab-values')" class="group relative px-8 py-6 glass-effect border border-blue-400/30 text-white rounded-2xl font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 interactive-hover shadow-2xl backdrop-blur-lg hover:border-blue-400/50">
+                            <div class="flex items-center justify-center space-x-3">
+                                <span class="text-3xl group-hover:scale-110 transition-transform">🔬</span>
+                                <span class="relative z-10">Lab Values</span>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                        </button>
+                        
+                        <button onclick="navigateToSection('disease-info')" class="group relative px-8 py-6 glass-effect border border-red-400/30 text-white rounded-2xl font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 interactive-hover shadow-2xl backdrop-blur-lg hover:border-red-400/50">
+                            <div class="flex items-center justify-center space-x-3">
+                                <span class="text-3xl group-hover:scale-110 transition-transform">🏥</span>
+                                <span class="relative z-10">Disease Info</span>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-red-500/20 to-orange-500/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                        </button>
+                        
+                        <button onclick="navigateToSection('qa')" class="group relative px-8 py-6 glass-effect border border-green-400/30 text-white rounded-2xl font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 interactive-hover shadow-2xl backdrop-blur-lg hover:border-green-400/50">
+                            <div class="flex items-center justify-center space-x-3">
+                                <span class="text-3xl group-hover:scale-110 transition-transform">🤖</span>
+                                <span class="relative z-10">AI Assistant</span>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-green-500/20 to-teal-500/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                        </button>
+                        
+                        <button onclick="navigateToSection('quiz')" class="group relative px-8 py-6 glass-effect border border-yellow-400/30 text-white rounded-2xl font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-105 interactive-hover shadow-2xl backdrop-blur-lg hover:border-yellow-400/50">
+                            <div class="flex items-center justify-center space-x-3">
+                                <span class="text-3xl group-hover:scale-110 transition-transform">🧠</span>
+                                <span class="relative z-10">Health Quiz</span>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-yellow-500/20 to-amber-500/20 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Floating Health Icons -->
+                <div class="absolute top-20 left-10 text-6xl opacity-20 floating-animation" style="animation-delay: -2s;">💊</div>
+                <div class="absolute top-40 right-20 text-5xl opacity-20 floating-animation" style="animation-delay: -4s;">🩺</div>
+                <div class="absolute bottom-20 left-20 text-4xl opacity-20 floating-animation" style="animation-delay: -1s;">❤️</div>
+                <div class="absolute bottom-40 right-10 text-5xl opacity-20 floating-animation" style="animation-delay: -3s;">🧬</div>
+            </section>
+
+            <!-- Health Information Section -->
+            <section id="health-info" class="py-24 px-4 relative">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16 fade-in-up">
+                        <h2 class="text-5xl font-black text-white mb-6 neon-text">Advanced Health Intelligence</h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">Discover comprehensive health insights powered by the latest medical research and AI-driven recommendations</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="glass-effect rounded-3xl p-8 card-3d interactive-hover scale-in border border-white/10" style="animation-delay: 0.1s;">
+                            <div class="text-6xl mb-6 floating-animation">🥗</div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Smart Nutrition</h3>
+                            <p class="text-gray-300 mb-6 leading-relaxed">AI-powered meal planning, nutrient tracking, and personalized dietary recommendations based on your health profile.</p>
+                            <button onclick="showHealthDetail('nutrition')" class="group flex items-center text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">
+                                Discover More 
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="glass-effect rounded-3xl p-8 card-3d interactive-hover scale-in border border-white/10" style="animation-delay: 0.2s;">
+                            <div class="text-6xl mb-6 floating-animation" style="animation-delay: -1s;">🏃‍♂️</div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Fitness Evolution</h3>
+                            <p class="text-gray-300 mb-6 leading-relaxed">Revolutionary workout programs, real-time form analysis, and adaptive training that evolves with your progress.</p>
+                            <button onclick="showHealthDetail('exercise')" class="group flex items-center text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">
+                                Discover More 
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="glass-effect rounded-3xl p-8 card-3d interactive-hover scale-in border border-white/10" style="animation-delay: 0.3s;">
+                            <div class="text-6xl mb-6 floating-animation" style="animation-delay: -2s;">🧠</div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Mental Wellness</h3>
+                            <p class="text-gray-300 mb-6 leading-relaxed">Advanced mindfulness techniques, stress pattern analysis, and personalized mental health optimization strategies.</p>
+                            <button onclick="showHealthDetail('mental')" class="group flex items-center text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">
+                                Discover More 
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="glass-effect rounded-3xl p-8 card-3d interactive-hover scale-in border border-white/10" style="animation-delay: 0.4s;">
+                            <div class="text-6xl mb-6 floating-animation" style="animation-delay: -3s;">🧼</div>
+                            <h3 class="text-2xl font-bold text-white mb-4">Hygiene Tech</h3>
+                            <p class="text-gray-300 mb-6 leading-relaxed">Smart hygiene monitoring, pathogen detection alerts, and automated health protection protocols for optimal wellness.</p>
+                            <button onclick="showHealthDetail('hygiene')" class="group flex items-center text-emerald-400 font-semibold hover:text-emerald-300 transition-colors">
+                                Discover More 
+                                <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BMI Calculator Section -->
+            <section id="bmi-calculator" class="py-24 px-4 relative">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16 fade-in-up">
+                        <h2 class="text-5xl font-black text-white mb-6 neon-text">Smart BMI Calculator</h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">Calculate your Body Mass Index with advanced health insights and personalized recommendations</p>
+                    </div>
+                    <div class="grid lg:grid-cols-2 gap-12">
+                        <!-- BMI Calculator -->
+                        <div class="glass-effect rounded-3xl p-10 border border-white/10 interactive-hover">
+                            <h3 class="text-2xl font-bold text-white mb-8 flex items-center">
+                                <span class="text-3xl mr-3">⚖️</span>
+                                Calculate Your BMI
+                            </h3>
+                            <div class="space-y-6">
+                                <div class="space-y-6">
+                                    <div>
+                                        <label class="block text-white font-semibold mb-3">Height</label>
+                                        <div class="flex">
+                                            <input type="number" id="height-input" placeholder="170" class="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white placeholder-gray-400 min-w-0">
+                                            <select id="height-unit" class="px-4 py-3 bg-white/10 border border-white/20 rounded-r-xl text-white focus:outline-none focus:ring-2 focus:ring-emerald-400 flex-shrink-0">
+                                                <option value="cm">cm</option>
+                                                <option value="ft">ft/in</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-white font-semibold mb-3">Weight</label>
+                                        <div class="flex">
+                                            <input type="number" id="weight-input" placeholder="70" class="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white placeholder-gray-400 min-w-0">
+                                            <select id="weight-unit" class="px-4 py-3 bg-white/10 border border-white/20 rounded-r-xl text-white focus:outline-none focus:ring-2 focus:ring-emerald-400 flex-shrink-0">
+                                                <option value="kg">kg</option>
+                                                <option value="lbs">lbs</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button onclick="calculateBMI()" class="w-full bg-gradient-to-r from-emerald-400 to-cyan-400 text-white px-8 py-4 rounded-2xl hover:from-emerald-500 hover:to-cyan-500 transition-all duration-300 font-bold text-lg pulse-glow">
+                                    Calculate BMI
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- BMI Results -->
+                        <div class="glass-effect rounded-3xl p-10 border border-white/10 interactive-hover">
+                            <h3 class="text-2xl font-bold text-white mb-8 flex items-center">
+                                <span class="text-3xl mr-3">📊</span>
+                                Your Results
+                            </h3>
+                            <div id="bmi-results" class="text-center">
+                                <div class="text-6xl mb-4 floating-animation">🎯</div>
+                                <p class="text-gray-300 text-lg">Enter your height and weight to calculate your BMI and get personalized health insights.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- BMI Categories -->
+                    <div class="mt-12 glass-effect rounded-3xl p-8 border border-white/10">
+                        <h3 class="text-2xl font-bold text-white mb-6 text-center">BMI Categories & Health Insights</h3>
+                        <div class="grid md:grid-cols-4 gap-6">
+                            <div class="text-center p-6 rounded-2xl bg-blue-500/20 border border-blue-400/30">
+                                <div class="text-4xl mb-3">📉</div>
+                                <h4 class="font-bold text-blue-400 mb-2">Underweight</h4>
+                                <p class="text-sm text-gray-300 mb-2">BMI < 18.5</p>
+                                <p class="text-xs text-gray-400">May need to gain weight</p>
+                            </div>
+                            <div class="text-center p-6 rounded-2xl bg-emerald-500/20 border border-emerald-400/30">
+                                <div class="text-4xl mb-3">✅</div>
+                                <h4 class="font-bold text-emerald-400 mb-2">Normal</h4>
+                                <p class="text-sm text-gray-300 mb-2">BMI 18.5-24.9</p>
+                                <p class="text-xs text-gray-400">Healthy weight range</p>
+                            </div>
+                            <div class="text-center p-6 rounded-2xl bg-yellow-500/20 border border-yellow-400/30">
+                                <div class="text-4xl mb-3">⚠️</div>
+                                <h4 class="font-bold text-yellow-400 mb-2">Overweight</h4>
+                                <p class="text-sm text-gray-300 mb-2">BMI 25-29.9</p>
+                                <p class="text-xs text-gray-400">Consider weight management</p>
+                            </div>
+                            <div class="text-center p-6 rounded-2xl bg-red-500/20 border border-red-400/30">
+                                <div class="text-4xl mb-3">🚨</div>
+                                <h4 class="font-bold text-red-400 mb-2">Obese</h4>
+                                <p class="text-sm text-gray-300 mb-2">BMI ≥ 30</p>
+                                <p class="text-xs text-gray-400">Consult healthcare provider</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clinical Lab Values Section -->
+            <section id="lab-values" class="py-24 px-4 relative">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16 fade-in-up">
+                        <h2 class="text-5xl font-black text-white mb-6 neon-text">Clinical Lab Reference</h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">Search and compare normal, low, and high levels of clinical parameters and laboratory values</p>
+                    </div>
+                    
+                    <!-- Search Interface -->
+                    <div class="glass-effect rounded-3xl p-8 border border-white/10 mb-12 interactive-hover">
+                        <div class="flex flex-col md:flex-row gap-4 mb-6">
+                            <div class="flex-1">
+                                <input type="text" id="lab-search" placeholder="Search lab tests (e.g., cholesterol, glucose, hemoglobin)..." class="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white placeholder-gray-400 text-lg">
+                            </div>
+                            <button onclick="searchLabValues()" class="bg-gradient-to-r from-emerald-400 to-cyan-400 text-white px-8 py-4 rounded-2xl hover:from-emerald-500 hover:to-cyan-500 transition-all duration-300 font-semibold pulse-glow">
+                                🔬 Search
+                            </button>
+                        </div>
+                        
+                        <!-- Quick Categories -->
+                        <div class="flex flex-wrap gap-3">
+                            <button onclick="filterLabCategory('blood')" class="px-4 py-2 bg-red-500/20 border border-red-400/30 rounded-xl text-red-400 hover:bg-red-500/30 transition-colors">🩸 Blood Tests</button>
+                            <button onclick="filterLabCategory('metabolic')" class="px-4 py-2 bg-green-500/20 border border-green-400/30 rounded-xl text-green-400 hover:bg-green-500/30 transition-colors">⚡ Metabolic Panel</button>
+                            <button onclick="filterLabCategory('lipid')" class="px-4 py-2 bg-yellow-500/20 border border-yellow-400/30 rounded-xl text-yellow-400 hover:bg-yellow-500/30 transition-colors">🫀 Lipid Profile</button>
+                            <button onclick="filterLabCategory('liver')" class="px-4 py-2 bg-purple-500/20 border border-purple-400/30 rounded-xl text-purple-400 hover:bg-purple-500/30 transition-colors">🫁 Liver Function</button>
+                            <button onclick="filterLabCategory('kidney')" class="px-4 py-2 bg-blue-500/20 border border-blue-400/30 rounded-xl text-blue-400 hover:bg-blue-500/30 transition-colors">🫘 Kidney Function</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Lab Results Display -->
+                    <div id="lab-results" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Default lab values will be shown here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Disease Information Section -->
+            <section id="disease-info" class="py-24 px-4 relative">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16 fade-in-up">
+                        <h2 class="text-5xl font-black text-white mb-6 neon-text">Disease Information Hub</h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">Search symptoms, preventive measures, and treatment information for various diseases</p>
+                    </div>
+                    
+                    <!-- Disease Search Interface -->
+                    <div class="glass-effect rounded-3xl p-8 border border-white/10 mb-12 interactive-hover">
+                        <div class="flex flex-col md:flex-row gap-4 mb-6">
+                            <div class="flex-1">
+                                <input type="text" id="disease-search" placeholder="Search diseases or symptoms (e.g., diabetes, headache, fever)..." class="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-400 text-white placeholder-gray-400 text-lg">
+                            </div>
+                            <button onclick="searchDiseaseInfo()" class="bg-gradient-to-r from-emerald-400 to-cyan-400 text-white px-8 py-4 rounded-2xl hover:from-emerald-500 hover:to-cyan-500 transition-all duration-300 font-semibold pulse-glow">
+                                🔍 Search
+                            </button>
+                        </div>
+                        
+                        <!-- Disease Categories -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <button onclick="filterDiseaseCategory('cardiovascular')" class="p-3 bg-red-500/20 border border-red-400/30 rounded-xl text-red-400 hover:bg-red-500/30 transition-colors text-sm">❤️ Cardiovascular</button>
+                            <button onclick="filterDiseaseCategory('respiratory')" class="p-3 bg-blue-500/20 border border-blue-400/30 rounded-xl text-blue-400 hover:bg-blue-500/30 transition-colors text-sm">🫁 Respiratory</button>
+                            <button onclick="filterDiseaseCategory('digestive')" class="p-3 bg-green-500/20 border border-green-400/30 rounded-xl text-green-400 hover:bg-green-500/30 transition-colors text-sm">🍽️ Digestive</button>
+                            <button onclick="filterDiseaseCategory('neurological')" class="p-3 bg-purple-500/20 border border-purple-400/30 rounded-xl text-purple-400 hover:bg-purple-500/30 transition-colors text-sm">🧠 Neurological</button>
+                            <button onclick="filterDiseaseCategory('endocrine')" class="p-3 bg-yellow-500/20 border border-yellow-400/30 rounded-xl text-yellow-400 hover:bg-yellow-500/30 transition-colors text-sm">⚡ Endocrine</button>
+                            <button onclick="filterDiseaseCategory('infectious')" class="p-3 bg-orange-500/20 border border-orange-400/30 rounded-xl text-orange-400 hover:bg-orange-500/30 transition-colors text-sm">🦠 Infectious</button>
+                            <button onclick="filterDiseaseCategory('autoimmune')" class="p-3 bg-pink-500/20 border border-pink-400/30 rounded-xl text-pink-400 hover:bg-pink-500/30 transition-colors text-sm">🛡️ Autoimmune</button>
+                            <button onclick="filterDiseaseCategory('mental')" class="p-3 bg-indigo-500/20 border border-indigo-400/30 rounded-xl text-indigo-400 hover:bg-indigo-500/30 transition-colors text-sm">🧘 Mental Health</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Disease Information Display -->
+                    <div id="disease-results" class="space-y-8">
+                        <!-- Default disease information will be shown here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Interactive Q&A Section -->
+            <section id="qa" class="py-24 px-4 relative">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16 fade-in-up">
+                        <h2 class="text-5xl font-black text-white mb-6 neon-text">AI Health Assistant</h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">Get instant, personalized health answers powered by advanced medical AI and expert knowledge</p>
+                    </div>
+                    <div class="glass-effect rounded-3xl p-10 border border-white/10 interactive-hover">
+                        <div class="mb-8">
+                            <label class="block text-white font-semibold mb-4 text-lg">Ask Your Health Question:</label>
+                            <div class="relative">
+                                <input type="text" id="question-input" placeholder="Type your health question here..." class="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent text-white placeholder-gray-400 text-lg backdrop-blur-sm">
+                                <button onclick="askQuestion()" class="absolute right-2 top-2 bg-gradient-to-r from-emerald-400 to-cyan-400 text-white px-8 py-2 rounded-xl hover:from-emerald-500 hover:to-cyan-500 transition-all duration-300 font-semibold pulse-glow">
+                                    Ask AI
+                                </button>
+                            </div>
+                        </div>
+                        <div id="qa-results" class="space-y-6">
+                            <div class="glass-effect p-6 rounded-2xl border border-emerald-400/30 slide-in-left">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold">Q</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-semibold text-emerald-400 mb-2">How much water should I drink daily?</p>
+                                        <p class="text-gray-300 leading-relaxed">Adults should aim for 8-10 glasses (64-80 oz) of water daily, more if you're active or in hot weather. Your hydration needs may vary based on climate, activity level, and overall health.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="glass-effect p-6 rounded-2xl border border-cyan-400/30 slide-in-right">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-10 h-10 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold">Q</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-semibold text-cyan-400 mb-2">How many hours of sleep do I need?</p>
+                                        <p class="text-gray-300 leading-relaxed">Most adults need 7-9 hours of quality sleep per night for optimal health and well-being. Sleep quality is just as important as quantity for cognitive function and physical recovery.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Health Quiz Section -->
+            <section id="quiz" class="py-24 px-4 relative">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16 fade-in-up">
+                        <h2 class="text-5xl font-black text-white mb-6 neon-text">Ultimate Health Challenge</h2>
+                        <p class="text-xl text-gray-300 max-w-3xl mx-auto">Test your health knowledge with our advanced AI-powered quiz system featuring 100+ dynamic questions</p>
+                    </div>
+                    <div class="glass-effect rounded-3xl p-10 border border-white/10 interactive-hover">
+                        <div id="quiz-container">
+                            <div class="mb-8">
+                                <div class="flex justify-between items-center mb-6">
+                                    <div class="flex items-center space-x-4">
+                                        <span class="text-lg text-gray-300">Question <span id="current-question" class="text-emerald-400 font-bold">1</span> of 5</span>
+                                        <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="text-lg text-gray-300">Score:</span>
+                                        <span id="quiz-score" class="text-2xl font-bold text-emerald-400">0</span>
+                                        <div class="text-2xl">🏆</div>
+                                    </div>
+                                </div>
+                                <div class="relative w-full bg-gray-700 rounded-full h-3 mb-8 overflow-hidden">
+                                    <div id="progress-bar" class="bg-gradient-to-r from-emerald-400 to-cyan-400 h-3 rounded-full transition-all duration-500 relative" style="width: 20%">
+                                        <div class="absolute inset-0 bg-white/20 animate-pulse"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="question-container">
+                                <h3 class="text-2xl font-bold text-white mb-8 leading-relaxed" id="question-text">Which of the following is considered a healthy BMI range for adults?</h3>
+                                <div class="space-y-4" id="options-container">
+                                    <button onclick="selectAnswer(0)" class="quiz-option w-full text-left p-6 border-2 border-white/20 rounded-2xl hover:border-emerald-400 transition-all duration-300 text-white hover:bg-white/5 interactive-hover">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-8 h-8 border-2 border-current rounded-full flex items-center justify-center font-bold">A</div>
+                                            <span class="text-lg">15-18</span>
+                                        </div>
+                                    </button>
+                                    <button onclick="selectAnswer(1)" class="quiz-option w-full text-left p-6 border-2 border-white/20 rounded-2xl hover:border-emerald-400 transition-all duration-300 text-white hover:bg-white/5 interactive-hover">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-8 h-8 border-2 border-current rounded-full flex items-center justify-center font-bold">B</div>
+                                            <span class="text-lg">18.5-24.9</span>
+                                        </div>
+                                    </button>
+                                    <button onclick="selectAnswer(2)" class="quiz-option w-full text-left p-6 border-2 border-white/20 rounded-2xl hover:border-emerald-400 transition-all duration-300 text-white hover:bg-white/5 interactive-hover">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-8 h-8 border-2 border-current rounded-full flex items-center justify-center font-bold">C</div>
+                                            <span class="text-lg">25-30</span>
+                                        </div>
+                                    </button>
+                                    <button onclick="selectAnswer(3)" class="quiz-option w-full text-left p-6 border-2 border-white/20 rounded-2xl hover:border-emerald-400 transition-all duration-300 text-white hover:bg-white/5 interactive-hover">
+                                        <div class="flex items-center space-x-4">
+                                            <div class="w-8 h-8 border-2 border-current rounded-full flex items-center justify-center font-bold">D</div>
+                                            <span class="text-lg">30-35</span>
+                                        </div>
+                                    </button>
+                                </div>
+                                <button id="next-question" onclick="nextQuestion()" class="mt-8 bg-gradient-to-r from-emerald-400 to-cyan-400 text-white px-10 py-4 rounded-2xl hover:from-emerald-500 hover:to-cyan-500 transition-all duration-300 font-bold text-lg opacity-50 cursor-not-allowed pulse-glow" disabled>
+                                    Next Question →
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact" class="glass-effect py-16 px-4 border-t border-white/10 relative z-10">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12">
+                <div class="slide-in-left">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-2xl flex items-center justify-center pulse-glow">
+                            <span class="text-white font-bold text-xl">🏥</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">HealthCare+</h3>
+                            <p class="text-xs text-gray-400">Premium Health Solutions</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">Revolutionizing community health through advanced technology, personalized care, and comprehensive wellness solutions.</p>
+                </div>
+                <div class="slide-in-up" style="animation-delay: 0.1s;">
+                    <h4 class="text-xl font-bold text-white mb-6">Contact Intelligence</h4>
+                    <div class="space-y-4 text-gray-300">
+                        <div class="flex items-center space-x-3">
+                            <span class="text-emerald-400">📧</span>
+                            <span>ai@healthcareplus.org</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-emerald-400">📞</span>
+                            <span>+1 (555) HEALTH-AI</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-emerald-400">📍</span>
+                            <span>Silicon Valley Health Hub</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <span class="text-emerald-400">🌐</span>
+                            <span>Global Health Network</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide-in-up" style="animation-delay: 0.2s;">
+                    <h4 class="text-xl font-bold text-white mb-6">Quick Access</h4>
+                    <div class="space-y-3">
+                        <a href="#home" class="block text-gray-300 hover:text-emerald-400 transition-colors hover:translate-x-2 duration-300">🏠 Home Portal</a>
+                        <a href="#health-info" class="block text-gray-300 hover:text-emerald-400 transition-colors hover:translate-x-2 duration-300">🧬 Health Intelligence</a>
+                        <a href="#bmi-calculator" class="block text-gray-300 hover:text-emerald-400 transition-colors hover:translate-x-2 duration-300">⚖️ BMI Calculator</a>
+                        <a href="#lab-values" class="block text-gray-300 hover:text-emerald-400 transition-colors hover:translate-x-2 duration-300">🔬 Lab Values</a>
+                        <a href="#disease-info" class="block text-gray-300 hover:text-emerald-400 transition-colors hover:translate-x-2 duration-300">🏥 Disease Info</a>
+                        <a href="#qa" class="block text-gray-300 hover:text-emerald-400 transition-colors hover:translate-x-2 duration-300">🤖 AI Assistant</a>
+                        <a href="#quiz" class="block text-gray-300 hover:text-emerald-400 transition-colors hover:translate-x-2 duration-300">🧠 Knowledge Challenge</a>
+                    </div>
+                </div>
+                <div class="slide-in-up" style="animation-delay: 0.3s;">
+                    <h4 class="text-xl font-bold text-white mb-6">Connect & Follow</h4>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white hover:scale-110 transition-transform">📘</a>
+                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-xl flex items-center justify-center text-white hover:scale-110 transition-transform">🐦</a>
+                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-xl flex items-center justify-center text-white hover:scale-110 transition-transform">📷</a>
+                        <a href="#" class="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl flex items-center justify-center text-white hover:scale-110 transition-transform">💼</a>
+                    </div>
+                    <div class="glass-effect p-4 rounded-xl border border-white/10">
+                        <p class="text-sm text-gray-300 mb-2">🔔 Health Alerts</p>
+                        <p class="text-xs text-gray-400">Get instant notifications about health trends and updates</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-12 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 HealthCare+ Advanced Health Intelligence Platform. Powered by AI • Secured by Blockchain • Trusted by Millions</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Enhanced Health Tips Popup -->
+    <div id="health-tip-popup" class="fixed bottom-8 right-8 glass-effect rounded-3xl shadow-2xl p-8 max-w-sm health-tip-popup z-50 border border-white/20">
+        <div class="flex items-start justify-between mb-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full flex items-center justify-center pulse-glow">
+                    <span class="text-white text-xl">💡</span>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white">AI Health Tip</h4>
+                    <p class="text-xs text-gray-400">Personalized for you</p>
+                </div>
+            </div>
+            <button onclick="closeHealthTip()" class="text-gray-400 hover:text-white transition-colors text-xl">✕</button>
+        </div>
+        <p id="tip-text" class="text-gray-300 mb-6 leading-relaxed">Take a 5-minute walk every hour to boost circulation and energy levels!</p>
+        <div class="flex space-x-3">
+            <button onclick="nextTip()" class="flex-1 bg-gradient-to-r from-emerald-400 to-cyan-400 text-white px-4 py-2 rounded-xl hover:from-emerald-500 hover:to-cyan-500 transition-all duration-300 font-semibold">
+                Next Tip
+            </button>
+            <button onclick="likeTip()" class="px-4 py-2 border border-white/20 rounded-xl text-gray-300 hover:text-white hover:border-white/40 transition-colors">
+                👍
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize page on load
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            displayDefaultLabValues();
+            displayDefaultDiseases();
+            initializeQuiz();
+        });
+
+        // Enhanced particle system
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Enhanced smooth scrolling with working navigation
+        function navigateToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Legacy function for compatibility
+        function scrollToSection(sectionId) {
+            navigateToSection(sectionId);
+        }
+
+        // Close health tip popup
+        function closeHealthTip() {
+            const popup = document.getElementById('health-tip-popup');
+            if (popup) {
+                popup.style.display = 'none';
+            }
+        }
+
+        // Legacy function for compatibility
+        function closeTip() {
+            closeHealthTip();
+        }
+
+        // BMI Calculator Functions
+        function calculateBMI() {
+            const height = parseFloat(document.getElementById('height-input').value);
+            const weight = parseFloat(document.getElementById('weight-input').value);
+            const heightUnit = document.getElementById('height-unit').value;
+            const weightUnit = document.getElementById('weight-unit').value;
+            
+            if (!height || !weight) {
+                alert('Please enter both height and weight values.');
+                return;
+            }
+            
+            // Convert to metric if needed
+            let heightInM = height;
+            let weightInKg = weight;
+            
+            if (heightUnit === 'ft') {
+                heightInM = height * 0.3048; // feet to meters
+            } else {
+                heightInM = height / 100; // cm to meters
+            }
+            
+            if (weightUnit === 'lbs') {
+                weightInKg = weight * 0.453592; // pounds to kg
+            }
+            
+            const bmi = weightInKg / (heightInM * heightInM);
+            const bmiRounded = Math.round(bmi * 10) / 10;
+            
+            let category, color, emoji, advice;
+            
+            if (bmi < 18.5) {
+                category = 'Underweight';
+                color = 'blue';
+                emoji = '📉';
+                advice = 'Consider consulting a healthcare provider about healthy weight gain strategies.';
+            } else if (bmi < 25) {
+                category = 'Normal Weight';
+                color = 'emerald';
+                emoji = '✅';
+                advice = 'Great job! Maintain your healthy lifestyle with balanced nutrition and regular exercise.';
+            } else if (bmi < 30) {
+                category = 'Overweight';
+                color = 'yellow';
+                emoji = '⚠️';
+                advice = 'Consider adopting healthier eating habits and increasing physical activity.';
+            } else {
+                category = 'Obese';
+                color = 'red';
+                emoji = '🚨';
+                advice = 'Consult with a healthcare provider for a comprehensive weight management plan.';
+            }
+            
+            const resultsDiv = document.getElementById('bmi-results');
+            resultsDiv.innerHTML = `
+                <div class="scale-in">
+                    <div class="text-6xl mb-4 floating-animation">${emoji}</div>
+                    <h4 class="text-3xl font-bold text-${color}-400 mb-2">${bmiRounded}</h4>
+                    <p class="text-xl text-white mb-4">${category}</p>
+                    <div class="glass-effect p-6 rounded-2xl border border-${color}-400/30 mb-6">
+                        <h5 class="font-bold text-${color}-400 mb-2">Health Recommendation</h5>
+                        <p class="text-gray-300 text-sm leading-relaxed">${advice}</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="glass-effect p-4 rounded-xl border border-white/10">
+                            <p class="text-gray-400">Height</p>
+                            <p class="text-white font-semibold">${height} ${heightUnit}</p>
+                        </div>
+                        <div class="glass-effect p-4 rounded-xl border border-white/10">
+                            <p class="text-gray-400">Weight</p>
+                            <p class="text-white font-semibold">${weight} ${weightUnit}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Lab Values Database
+        const labValues = {
+            // Blood Tests
+            'hemoglobin': {
+                name: 'Hemoglobin',
+                category: 'blood',
+                unit: 'g/dL',
+                normal: { male: '13.8-17.2', female: '12.1-15.1' },
+                low: 'May indicate anemia, blood loss, or nutritional deficiencies',
+                high: 'May indicate dehydration, lung disease, or blood disorders',
+                description: 'Protein in red blood cells that carries oxygen throughout the body'
+            },
+            'hematocrit': {
+                name: 'Hematocrit',
+                category: 'blood',
+                unit: '%',
+                normal: { male: '40.7-50.3', female: '36.1-44.3' },
+                low: 'May indicate anemia, blood loss, or overhydration',
+                high: 'May indicate dehydration, lung disease, or blood disorders',
+                description: 'Percentage of blood volume occupied by red blood cells'
+            },
+            'wbc': {
+                name: 'White Blood Cell Count',
+                category: 'blood',
+                unit: 'cells/μL',
+                normal: { all: '4,500-11,000' },
+                low: 'May indicate immune system problems, bone marrow disorders, or certain medications',
+                high: 'May indicate infection, inflammation, or blood cancers',
+                description: 'Cells that fight infection and disease in the body'
+            },
+            'platelets': {
+                name: 'Platelet Count',
+                category: 'blood',
+                unit: 'cells/μL',
+                normal: { all: '150,000-450,000' },
+                low: 'May indicate bleeding disorders, bone marrow problems, or certain medications',
+                high: 'May indicate blood clotting disorders, inflammation, or certain cancers',
+                description: 'Cell fragments that help blood clot and stop bleeding'
+            },
+            
+            // Metabolic Panel
+            'glucose': {
+                name: 'Blood Glucose (Fasting)',
+                category: 'metabolic',
+                unit: 'mg/dL',
+                normal: { all: '70-100' },
+                low: 'May indicate hypoglycemia, insulin overdose, or liver disease',
+                high: 'May indicate diabetes, prediabetes, or metabolic syndrome',
+                description: 'Sugar level in blood after fasting for 8-12 hours'
+            },
+            'sodium': {
+                name: 'Sodium',
+                category: 'metabolic',
+                unit: 'mEq/L',
+                normal: { all: '136-145' },
+                low: 'May indicate dehydration, kidney disease, or heart failure',
+                high: 'May indicate dehydration, kidney problems, or excessive salt intake',
+                description: 'Electrolyte that helps regulate fluid balance and nerve function'
+            },
+            'potassium': {
+                name: 'Potassium',
+                category: 'metabolic',
+                unit: 'mEq/L',
+                normal: { all: '3.5-5.0' },
+                low: 'May indicate kidney disease, diuretic use, or poor nutrition',
+                high: 'May indicate kidney disease, dehydration, or certain medications',
+                description: 'Electrolyte essential for heart rhythm and muscle function'
+            },
+            'chloride': {
+                name: 'Chloride',
+                category: 'metabolic',
+                unit: 'mEq/L',
+                normal: { all: '98-107' },
+                low: 'May indicate kidney disease, heart failure, or excessive sweating',
+                high: 'May indicate dehydration, kidney disease, or metabolic acidosis',
+                description: 'Electrolyte that helps maintain fluid balance and blood pH'
+            },
+            
+            // Lipid Profile
+            'cholesterol': {
+                name: 'Total Cholesterol',
+                category: 'lipid',
+                unit: 'mg/dL',
+                normal: { all: '<200' },
+                low: 'Generally not concerning unless extremely low',
+                high: 'May increase risk of heart disease and stroke',
+                description: 'Total amount of cholesterol in the blood'
+            },
+            'ldl': {
+                name: 'LDL Cholesterol',
+                category: 'lipid',
+                unit: 'mg/dL',
+                normal: { all: '<100' },
+                low: 'Generally beneficial for heart health',
+                high: 'Increases risk of heart disease and stroke ("bad" cholesterol)',
+                description: 'Low-density lipoprotein, often called "bad" cholesterol'
+            },
+            'hdl': {
+                name: 'HDL Cholesterol',
+                category: 'lipid',
+                unit: 'mg/dL',
+                normal: { male: '>40', female: '>50' },
+                low: 'Increases risk of heart disease',
+                high: 'Protective against heart disease ("good" cholesterol)',
+                description: 'High-density lipoprotein, often called "good" cholesterol'
+            },
+            'triglycerides': {
+                name: 'Triglycerides',
+                category: 'lipid',
+                unit: 'mg/dL',
+                normal: { all: '<150' },
+                low: 'Generally not concerning',
+                high: 'May increase risk of heart disease and pancreatitis',
+                description: 'Type of fat found in blood, stored energy from food'
+            },
+            
+            // Liver Function
+            'alt': {
+                name: 'ALT (Alanine Aminotransferase)',
+                category: 'liver',
+                unit: 'U/L',
+                normal: { male: '10-40', female: '7-35' },
+                low: 'Generally not concerning',
+                high: 'May indicate liver damage, hepatitis, or medication effects',
+                description: 'Enzyme found mainly in the liver, marker of liver health'
+            },
+            'ast': {
+                name: 'AST (Aspartate Aminotransferase)',
+                category: 'liver',
+                unit: 'U/L',
+                normal: { all: '10-40' },
+                low: 'Generally not concerning',
+                high: 'May indicate liver damage, heart problems, or muscle damage',
+                description: 'Enzyme found in liver, heart, and muscles'
+            },
+            'bilirubin': {
+                name: 'Total Bilirubin',
+                category: 'liver',
+                unit: 'mg/dL',
+                normal: { all: '0.3-1.2' },
+                low: 'Generally not concerning',
+                high: 'May indicate liver disease, bile duct problems, or hemolysis',
+                description: 'Waste product from breakdown of red blood cells'
+            },
+            'albumin': {
+                name: 'Albumin',
+                category: 'liver',
+                unit: 'g/dL',
+                normal: { all: '3.5-5.0' },
+                low: 'May indicate liver disease, kidney disease, or malnutrition',
+                high: 'May indicate dehydration',
+                description: 'Protein made by the liver, maintains fluid balance'
+            },
+            
+            // Kidney Function
+            'creatinine': {
+                name: 'Creatinine',
+                category: 'kidney',
+                unit: 'mg/dL',
+                normal: { male: '0.7-1.3', female: '0.6-1.1' },
+                low: 'May indicate low muscle mass or malnutrition',
+                high: 'May indicate kidney disease or dehydration',
+                description: 'Waste product filtered by kidneys, marker of kidney function'
+            },
+            'bun': {
+                name: 'BUN (Blood Urea Nitrogen)',
+                category: 'kidney',
+                unit: 'mg/dL',
+                normal: { all: '7-20' },
+                low: 'May indicate liver disease or malnutrition',
+                high: 'May indicate kidney disease, dehydration, or high protein diet',
+                description: 'Waste product from protein breakdown, filtered by kidneys'
+            },
+            'egfr': {
+                name: 'eGFR (Estimated Glomerular Filtration Rate)',
+                category: 'kidney',
+                unit: 'mL/min/1.73m²',
+                normal: { all: '>60' },
+                low: 'May indicate chronic kidney disease',
+                high: 'Generally indicates good kidney function',
+                description: 'Estimate of how well kidneys filter waste from blood'
+            }
+        };
+
+        // Disease Information Database
+        const diseaseInfo = {
+            // Cardiovascular
+            'hypertension': {
+                name: 'Hypertension (High Blood Pressure)',
+                category: 'cardiovascular',
+                symptoms: ['Headaches', 'Shortness of breath', 'Nosebleeds', 'Chest pain', 'Visual changes'],
+                prevention: ['Maintain healthy weight', 'Exercise regularly', 'Limit sodium intake', 'Manage stress', 'Avoid smoking'],
+                treatment: ['Lifestyle modifications', 'ACE inhibitors', 'Diuretics', 'Beta-blockers', 'Regular monitoring'],
+                description: 'Condition where blood pressure is consistently elevated above normal levels',
+                doctors: ['Dr. Jinendra Jain', 'Dr. Akash Patil', 'Dr. Sumit Saxena', 'Dr. Amit Ajkaonkar']
+            },
+            'heart disease': {
+                name: 'Coronary Heart Disease',
+                category: 'cardiovascular',
+                symptoms: ['Chest pain', 'Shortness of breath', 'Fatigue', 'Irregular heartbeat', 'Swelling in legs'],
+                prevention: ['Heart-healthy diet', 'Regular exercise', 'No smoking', 'Manage cholesterol', 'Control blood pressure'],
+                treatment: ['Medications', 'Lifestyle changes', 'Angioplasty', 'Bypass surgery', 'Cardiac rehabilitation'],
+                description: 'Disease affecting the blood vessels that supply the heart muscle',
+                doctors: ['Dr. Dinesh Kolhe', 'Dr. Abhijeet Choudhary']
+            },
+            
+            // Respiratory
+            'asthma': {
+                name: 'Asthma',
+                category: 'respiratory',
+                symptoms: ['Wheezing', 'Shortness of breath', 'Chest tightness', 'Coughing', 'Difficulty sleeping'],
+                prevention: ['Avoid triggers', 'Use air purifiers', 'Get vaccinated', 'Manage allergies', 'Exercise regularly'],
+                treatment: ['Inhaled corticosteroids', 'Bronchodilators', 'Allergy medications', 'Immunotherapy', 'Action plan'],
+                description: 'Chronic condition where airways become inflamed and narrowed',
+                doctors: ['Dr. Priya Dighe', 'Dr. Anupam Kher', 'Dr. Amir Khan']
+            },
+            'copd': {
+                name: 'COPD (Chronic Obstructive Pulmonary Disease)',
+                category: 'respiratory',
+                symptoms: ['Chronic cough', 'Shortness of breath', 'Wheezing', 'Chest tightness', 'Frequent infections'],
+                prevention: ['Quit smoking', 'Avoid air pollution', 'Get vaccinated', 'Exercise regularly', 'Healthy diet'],
+                treatment: ['Bronchodilators', 'Corticosteroids', 'Oxygen therapy', 'Pulmonary rehabilitation', 'Surgery'],
+                description: 'Progressive lung disease that makes breathing difficult',
+                doctors: ['Dr. Abhijeet Choudhary', 'Dr. Asmita Gupta']
+            },
+            
+            // Digestive
+            'diabetes': {
+                name: 'Type 2 Diabetes',
+                category: 'endocrine',
+                symptoms: ['Increased thirst', 'Frequent urination', 'Fatigue', 'Blurred vision', 'Slow healing wounds'],
+                prevention: ['Maintain healthy weight', 'Exercise regularly', 'Healthy diet', 'Limit processed foods', 'Regular checkups'],
+                treatment: ['Metformin', 'Insulin therapy', 'Lifestyle changes', 'Blood sugar monitoring', 'Regular medical care'],
+                description: 'Condition where body cannot properly use insulin to control blood sugar',
+                doctors: ['Dr. Anany Mehra', 'Dr. Rakesh Iyer']
+            },
+            'gastritis': {
+                name: 'Gastritis',
+                category: 'digestive',
+                symptoms: ['Stomach pain', 'Nausea', 'Vomiting', 'Loss of appetite', 'Bloating'],
+                prevention: ['Avoid NSAIDs', 'Limit alcohol', 'Manage stress', 'Eat smaller meals', 'Avoid spicy foods'],
+                treatment: ['Proton pump inhibitors', 'Antacids', 'Antibiotics (if H. pylori)', 'Dietary changes', 'Stress management'],
+                description: 'Inflammation of the stomach lining',
+                doctors: ['Dr. Kavita Sharma', 'Dr. Aditya Banerjee']
+            },
+            
+            // Neurological
+            'migraine': {
+                name: 'Migraine',
+                category: 'neurological',
+                symptoms: ['Severe headache', 'Nausea', 'Light sensitivity', 'Sound sensitivity', 'Visual disturbances'],
+                prevention: ['Identify triggers', 'Regular sleep', 'Stress management', 'Stay hydrated', 'Regular meals'],
+                treatment: ['Pain relievers', 'Triptans', 'Preventive medications', 'Lifestyle changes', 'Stress reduction'],
+                description: 'Neurological condition causing severe recurring headaches',
+                doctors: ['Dr. Suresh Choudhary ', 'Dr. Neha Kapoor']
+            },
+            'alzheimer': {
+                name: 'Alzheimer\'s Disease',
+                category: 'neurological',
+                symptoms: ['Memory loss', 'Confusion', 'Difficulty speaking', 'Personality changes', 'Poor judgment'],
+                prevention: ['Mental stimulation', 'Physical exercise', 'Social engagement', 'Healthy diet', 'Manage cardiovascular risk'],
+                treatment: ['Cholinesterase inhibitors', 'Memantine', 'Supportive care', 'Behavioral interventions', 'Family support'],
+                description: 'Progressive brain disorder that affects memory and cognitive function',
+                doctors: ['Dr. Arvind Krishnan', 'Dr. Swati Jaiswal']
+            },
+            
+            // Infectious
+            'flu': {
+                name: 'Influenza (Flu)',
+                category: 'infectious',
+                symptoms: ['Fever', 'Cough', 'Body aches', 'Fatigue', 'Sore throat'],
+                prevention: ['Annual vaccination', 'Hand hygiene', 'Avoid sick people', 'Boost immunity', 'Healthy lifestyle'],
+                treatment: ['Antiviral medications', 'Rest', 'Fluids', 'Pain relievers', 'Symptom management'],
+                description: 'Viral respiratory infection that affects the nose, throat, and lungs',
+                doctors: ['Dr.Manish Deshmukh', 'Dr.Atul Sharma']
+            },
+            'covid': {
+                name: 'COVID-19',
+                category: 'infectious',
+                symptoms: ['Fever', 'Cough', 'Shortness of breath', 'Loss of taste/smell', 'Fatigue'],
+                prevention: ['Vaccination', 'Mask wearing', 'Social distancing', 'Hand hygiene', 'Avoid crowds'],
+                treatment: ['Supportive care', 'Antiviral medications', 'Monoclonal antibodies', 'Oxygen therapy', 'Rest and fluids'],
+                description: 'Infectious disease caused by SARS-CoV-2 virus',
+                doctors: ['Dr. Sudhanshu Sharma', 'Dr. Dinesh Tiwari']
+            },
+            
+            // Mental Health
+            'depression': {
+                name: 'Depression',
+                category: 'mental',
+                symptoms: ['Persistent sadness', 'Loss of interest', 'Fatigue', 'Sleep changes', 'Difficulty concentrating'],
+                prevention: ['Regular exercise', 'Social connections', 'Stress management', 'Healthy lifestyle', 'Seek help early'],
+                treatment: ['Antidepressants', 'Psychotherapy', 'Lifestyle changes', 'Support groups', 'Combination therapy'],
+                description: 'Mental health disorder characterized by persistent feelings of sadness and loss of interest',
+                doctors: ['Dr. Parth Agarwal', 'Dr. Anil Lohiya']
+            },
+            'anxiety': { 
+                name: 'Anxiety Disorders',
+                category: 'mental',
+                symptoms: ['Excessive worry', 'Restlessness', 'Fatigue', 'Difficulty concentrating', 'Physical symptoms'],
+                prevention: ['Stress management', 'Regular exercise', 'Adequate sleep', 'Limit caffeine', 'Relaxation techniques'],
+                treatment: ['Anti-anxiety medications', 'Cognitive behavioral therapy', 'Exposure therapy', 'Relaxation techniques', 'Lifestyle changes'],
+                description: 'Group of mental health conditions characterized by excessive fear or worry',
+                doctors: ['Dr. Shivam Pal', 'Dr. Salman Sayyed']
+            }
+        };
+
+        // Lab Values Functions
+        function searchLabValues() {
+            const searchTerm = document.getElementById('lab-search').value.toLowerCase();
+            const resultsDiv = document.getElementById('lab-results');
+            
+            if (!searchTerm.trim()) {
+                displayDefaultLabValues();
+                return;
+            }
+            
+            const matchingTests = Object.keys(labValues).filter(key => 
+                key.includes(searchTerm) || 
+                labValues[key].name.toLowerCase().includes(searchTerm) ||
+                labValues[key].description.toLowerCase().includes(searchTerm)
+            );
+            
+            if (matchingTests.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <div class="text-6xl mb-4">🔍</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">No Results Found</h3>
+                        <p class="text-gray-300">Try searching for common tests like "cholesterol", "glucose", or "hemoglobin"</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            displayLabValues(matchingTests);
+        }
+
+        function filterLabCategory(category) {
+            const matchingTests = Object.keys(labValues).filter(key => 
+                labValues[key].category === category
+            );
+            displayLabValues(matchingTests);
+        }
+
+        function displayLabValues(testKeys) {
+            const resultsDiv = document.getElementById('lab-results');
+            resultsDiv.innerHTML = '';
+            
+            testKeys.forEach((key, index) => {
+                const test = labValues[key];
+                const normalRange = test.normal.all || `M: ${test.normal.male || 'N/A'}, F: ${test.normal.female || 'N/A'}`;
+                
+                const card = document.createElement('div');
+                card.className = 'glass-effect rounded-3xl p-6 border border-white/10 interactive-hover scale-in';
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.innerHTML = `
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-white">${test.name}</h3>
+                        <span class="text-2xl">${getCategoryEmoji(test.category)}</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4 leading-relaxed">${test.description}</p>
+                    <div class="space-y-3">
+                        <div class="glass-effect p-4 rounded-xl border border-emerald-400/30">
+                            <h4 class="font-semibold text-emerald-400 mb-2">Normal Range</h4>
+                            <p class="text-white">${normalRange} ${test.unit}</p>
+                        </div>
+                        <div class="glass-effect p-4 rounded-xl border border-blue-400/30">
+                            <h4 class="font-semibold text-blue-400 mb-2">Low Levels</h4>
+                            <p class="text-gray-300 text-sm">${test.low}</p>
+                        </div>
+                        <div class="glass-effect p-4 rounded-xl border border-red-400/30">
+                            <h4 class="font-semibold text-red-400 mb-2">High Levels</h4>
+                            <p class="text-gray-300 text-sm">${test.high}</p>
+                        </div>
+                    </div>
+                `;
+                resultsDiv.appendChild(card);
+            });
+        }
+
+        function displayDefaultLabValues() {
+            const defaultTests = ['cholesterol', 'glucose', 'hemoglobin', 'creatinine', 'alt', 'hdl'];
+            displayLabValues(defaultTests);
+        }
+
+        function getCategoryEmoji(category) {
+            const emojis = {
+                'blood': '🩸',
+                'metabolic': '⚡',
+                'lipid': '🫀',
+                'liver': '🫁',
+                'kidney': '🫘'
+            };
+            return emojis[category] || '🔬';
+        }
+
+        // Disease Information Functions
+        function searchDiseaseInfo() {
+            const searchTerm = document.getElementById('disease-search').value.toLowerCase();
+            const resultsDiv = document.getElementById('disease-results');
+            
+            if (!searchTerm.trim()) {
+                displayDefaultDiseases();
+                return;
+            }
+            
+            const matchingDiseases = Object.keys(diseaseInfo).filter(key => 
+                key.includes(searchTerm) || 
+                diseaseInfo[key].name.toLowerCase().includes(searchTerm) ||
+                diseaseInfo[key].description.toLowerCase().includes(searchTerm) ||
+                diseaseInfo[key].symptoms.some(symptom => symptom.toLowerCase().includes(searchTerm))
+            );
+            
+            if (matchingDiseases.length === 0) {
+                resultsDiv.innerHTML = `
+                    <div class="text-center py-12">
+                        <div class="text-6xl mb-4">🔍</div>
+                        <h3 class="text-2xl font-bold text-white mb-4">No Results Found</h3>
+                        <p class="text-gray-300">Try searching for conditions like "diabetes", "hypertension", or symptoms like "headache"</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            displayDiseaseInfo(matchingDiseases);
+        }
+
+        function filterDiseaseCategory(category) {
+            const matchingDiseases = Object.keys(diseaseInfo).filter(key => 
+                diseaseInfo[key].category === category
+            );
+            displayDiseaseInfo(matchingDiseases);
+        }
+
+        function displayDiseaseInfo(diseaseKeys) {
+            const resultsDiv = document.getElementById('disease-results');
+            resultsDiv.innerHTML = '';
+            
+            diseaseKeys.forEach((key, index) => {
+                const disease = diseaseInfo[key];
+                
+                const card = document.createElement('div');
+                card.className = 'glass-effect rounded-3xl p-8 border border-white/10 interactive-hover scale-in';
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.innerHTML = `
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-white">${disease.name}</h3>
+                        <span class="text-3xl">${getDiseaseEmoji(disease.category)}</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">${disease.description}</p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="glass-effect p-6 rounded-2xl border border-red-400/30">
+                            <h4 class="font-bold text-red-400 mb-4 flex items-center">
+                                <span class="mr-2">🚨</span>
+                                Symptoms
+                            </h4>
+                            <ul class="space-y-2">
+                                ${disease.symptoms.map(symptom => `<li class="text-gray-300 text-sm">• ${symptom}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="glass-effect p-6 rounded-2xl border border-emerald-400/30">
+                            <h4 class="font-bold text-emerald-400 mb-4 flex items-center">
+                                <span class="mr-2">🛡️</span>
+                                Prevention
+                            </h4>
+                            <ul class="space-y-2">
+                                ${disease.prevention.map(measure => `<li class="text-gray-300 text-sm">• ${measure}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="glass-effect p-6 rounded-2xl border border-blue-400/30">
+                            <h4 class="font-bold text-blue-400 mb-4 flex items-center">
+                                <span class="mr-2">💊</span>
+                                Treatment
+                            </h4>
+                            <ul class="space-y-2">
+                                ${disease.treatment.map(treatment => `<li class="text-gray-300 text-sm">• ${treatment}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-yellow-500/10 border border-yellow-400/30 rounded-xl">
+                        <h4 class='text-gray-400 text-md'>Recommended Doctors :</h4>
+                        <p class="text-yellow-400 text-sm">
+                            ${disease.doctors.map(doctor => `<li class="text-gray-300 text-sm"> ${doctor}: <span class='ml-5'>YCM Hospital</span></li>`).join('')}
+                        </p>
+
+                    </div>
+                `;
+                resultsDiv.appendChild(card);
+            });
+        }
+
+        function displayDefaultDiseases() {
+            const defaultDiseases = ['diabetes', 'hypertension', 'asthma', 'depression'];
+            displayDiseaseInfo(defaultDiseases);
+        }
+
+        function getDiseaseEmoji(category) {
+            const emojis = {
+                'cardiovascular': '❤️',
+                'respiratory': '🫁',
+                'digestive': '🍽️',
+                'neurological': '🧠',
+                'endocrine': '⚡',
+                'infectious': '🦠',
+                'autoimmune': '🛡️',
+                'mental': '🧘'
+            };
+            return emojis[category] || '🏥';
+        }
+
+        // Enhanced health tips functionality
+        const healthTips = [
+            "Take a 5-minute walk every hour to boost circulation and energy levels!",
+            "Drink a glass of water when you wake up to kickstart your metabolism.",
+            "Practice deep breathing for 2 minutes to reduce stress and anxiety.",
+            "Eat colorful fruits and vegetables to get a variety of nutrients.",
+            "Get 7-9 hours of sleep each night for optimal health and recovery.",
+            "Wash your hands frequently to prevent the spread of germs.",
+            "Take breaks from screens every 20 minutes to rest your eyes.",
+            "Stand up and stretch regularly if you work at a desk.",
+            "Practice gratitude daily to improve mental well-being.",
+            "Limit processed foods and choose whole, natural ingredients.",
+            "Stay socially connected with friends and family for emotional health.",
+            "Challenge your brain with puzzles, reading, or learning new skills.",
+            "Maintain good posture to prevent back and neck pain.",
+            "Use sunscreen daily to protect your skin from UV damage.",
+            "Practice portion control to maintain a healthy weight."
+        ];
+
+        let currentTipIndex = 0;
+
+        function nextTip() {
+            currentTipIndex = (currentTipIndex + 1) % healthTips.length;
+            document.getElementById('tip-text').textContent = healthTips[currentTipIndex];
+        }
+
+        function likeTip() {
+            // Add visual feedback for liking a tip
+            const button = event.target;
+            button.textContent = '❤️';
+            setTimeout(() => {
+                button.textContent = '👍';
+            }, 1000);
+        }
+
+        // Enhanced Q&A functionality
+        const healthQA = {
+            "water": "Adults should aim for 8-10 glasses (64-80 oz) of water daily, more if you're active or in hot weather. Proper hydration supports every bodily function.",
+            "sleep": "Most adults need 7-9 hours of quality sleep per night for optimal health and well-being. Sleep is crucial for memory consolidation and physical recovery.",
+            "exercise": "Aim for at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity per week, plus strength training twice weekly.",
+            "nutrition": "Focus on a balanced diet with fruits, vegetables, whole grains, lean proteins, and healthy fats. Limit processed foods and added sugars.",
+            "stress": "Practice relaxation techniques like deep breathing, meditation, or yoga to manage stress effectively. Regular exercise also helps reduce stress hormones.",
+            "weight": "Maintain a healthy weight through balanced nutrition and regular physical activity. Consult healthcare providers for personalized weight management plans.",
+            "heart": "Keep your heart healthy with regular exercise, a balanced diet low in saturated fats, not smoking, and managing stress levels.",
+            "brain": "Support brain health with regular mental challenges, physical exercise, social connections, quality sleep, and a nutrient-rich diet.",
+            "immunity": "Boost immunity with adequate sleep, regular exercise, stress management, proper nutrition, and good hygiene practices."
+        };
+
+        function askQuestion() {
+            const input = document.getElementById('question-input');
+            const question = input.value.toLowerCase();
+            const resultsDiv = document.getElementById('qa-results');
+            
+            if (question.trim() === '') return;
+            
+            let answer = "Thank you for your question! Our AI is processing your query. For specific health concerns, please consult with a healthcare professional.";
+            
+            // Enhanced keyword matching
+            for (let key in healthQA) {
+                if (question.includes(key)) {
+                    answer = healthQA[key];
+                    break;
+                }
+            }
+            
+            const colors = ['emerald', 'cyan', 'blue', 'purple', 'pink'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            const newQA = document.createElement('div');
+            newQA.className = `glass-effect p-6 rounded-2xl border border-${randomColor}-400/30 slide-in-left`;
+            newQA.innerHTML = `
+                <div class="flex items-start space-x-4">
+                    <div class="w-10 h-10 bg-gradient-to-r from-${randomColor}-400 to-${randomColor}-500 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span class="text-white font-bold">Q</span>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-semibold text-${randomColor}-400 mb-2">${input.value}</p>
+                        <p class="text-gray-300 leading-relaxed">${answer}</p>
+                    </div>
+                </div>
+            `;
+            
+            resultsDiv.insertBefore(newQA, resultsDiv.firstChild);
+            input.value = '';
+        }
+
+        // Add Enter key support for Q&A
+        document.addEventListener('DOMContentLoaded', function() {
+            const questionInput = document.getElementById('question-input');
+            if (questionInput) {
+                questionInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        askQuestion();
+                    }
+                });
+            }
+        });
+
+        // Quiz functionality
+        const quizQuestions = [
+            { question: "Which of the following is considered a healthy BMI range for adults?", options: ["15-18", "18.5-24.9", "25-30", "30-35"], correct: 1 },
+            { question: "How many servings of fruits and vegetables should you eat daily?", options: ["2-3 servings", "5-9 servings", "10-12 servings", "1-2 servings"], correct: 1 },
+            { question: "What is the recommended amount of moderate exercise per week?", options: ["75 minutes", "100 minutes", "150 minutes", "200 minutes"], correct: 2 },
+            { question: "What is the ideal duration of sleep for adults?", options: ["5-6 hours", "7-9 hours", "10-12 hours", "4-5 hours"], correct: 1 },
+            { question: "How much water should an average adult drink per day?", options: ["4-5 glasses", "8-10 glasses", "12-15 glasses", "2-3 glasses"], correct: 1 }
+        ];
+
+        let currentQuestionIndex = 0;
+        let quizScore = 0;
+        let selectedAnswer = null;
+
+        function initializeQuiz() {
+            currentQuestionIndex = 0;
+            quizScore = 0;
+            selectedAnswer = null;
+            displayQuestion();
+        }
+
+        function displayQuestion() {
+            const question = quizQuestions[currentQuestionIndex];
+            document.getElementById('question-text').textContent = question.question;
+            document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+            document.getElementById('quiz-score').textContent = quizScore;
+            
+            const progressPercent = ((currentQuestionIndex + 1) / quizQuestions.length) * 100;
+            document.getElementById('progress-bar').style.width = progressPercent + '%';
+            
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.onclick = () => selectAnswer(index);
+                button.className = 'quiz-option w-full text-left p-6 border-2 border-white/20 rounded-2xl hover:border-emerald-400 transition-all duration-300 text-white hover:bg-white/5 interactive-hover';
+                button.innerHTML = `
+                    <div class="flex items-center space-x-4">
+                        <div class="w-8 h-8 border-2 border-current rounded-full flex items-center justify-center font-bold">${String.fromCharCode(65 + index)}</div>
+                        <span class="text-lg">${option}</span>
+                    </div>
+                `;
+                optionsContainer.appendChild(button);
+            });
+            
+            // Reset next button
+            const nextButton = document.getElementById('next-question');
+            nextButton.disabled = true;
+            nextButton.classList.add('opacity-50', 'cursor-not-allowed');
+            selectedAnswer = null;
+        }
+
+        function selectAnswer(answerIndex) {
+            selectedAnswer = answerIndex;
+            
+            // Update button styles
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach((option, index) => {
+                option.classList.remove('border-emerald-400', 'bg-emerald-500/20');
+                if (index === answerIndex) {
+                    option.classList.add('border-emerald-400', 'bg-emerald-500/20');
+                }
+            });
+            
+            // Enable next button
+            const nextButton = document.getElementById('next-question');
+            nextButton.disabled = false;
+            nextButton.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+
+        function nextQuestion() {
+            if (selectedAnswer === null) return;
+            
+            // Check if answer is correct
+            if (selectedAnswer === quizQuestions[currentQuestionIndex].correct) {
+                quizScore++;
+            }
+            
+            currentQuestionIndex++;
+            
+            if (currentQuestionIndex < quizQuestions.length) {
+                displayQuestion();
+            } else {
+                showQuizResults();
+            }
+        }
+
+        function showQuizResults() {
+            const percentage = Math.round((quizScore / quizQuestions.length) * 100);
+            let emoji, message, color;
+            
+            if (percentage >= 80) {
+                emoji = '🏆';
+                message = 'Excellent! You have outstanding health knowledge!';
+                color = 'emerald';
+            } else if (percentage >= 60) {
+                emoji = '👍';
+                message = 'Good job! You have solid health awareness!';
+                color = 'blue';
+            } else if (percentage >= 40) {
+                emoji = '📚';
+                message = 'Not bad! Keep learning about health topics!';
+                color = 'yellow';
+            } else {
+                emoji = '💪';
+                message = 'Keep studying! Health knowledge is important!';
+                color = 'red';
+            }
+            
+            const container = document.getElementById('quiz-container');
+            container.innerHTML = `
+                <div class="text-center scale-in">
+                    <div class="text-8xl mb-6 floating-animation">${emoji}</div>
+                    <h3 class="text-4xl font-bold text-${color}-400 mb-4">Quiz Complete!</h3>
+                    <p class="text-2xl text-white mb-6">Your Score: ${quizScore}/${quizQuestions.length} (${percentage}%)</p>
+                    <p class="text-xl text-gray-300 mb-8">${message}</p>
+                    <div class="glass-effect p-6 rounded-2xl border border-${color}-400/30 mb-8">
+                        <h4 class="font-bold text-${color}-400 mb-4">Performance Breakdown</h4>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div>
+                                <p class="text-gray-400">Correct Answers</p>
+                                <p class="text-white font-semibold">${quizScore}</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400">Accuracy Rate</p>
+                                <p class="text-white font-semibold">${percentage}%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="initializeQuiz()" class="bg-gradient-to-r from-emerald-400 to-cyan-400 text-white px-10 py-4 rounded-2xl hover:from-emerald-500 hover:to-cyan-500 transition-all duration-300 font-bold text-lg pulse-glow">
+                        Take Quiz Again
+                    </button>
+                </div>
+            `;
+        }
+
+        // Health detail functions
+        function showHealthDetail(topic) {
+            const details = {
+                'nutrition': 'Smart nutrition involves personalized meal planning based on your health profile, dietary restrictions, and fitness goals. Our AI analyzes your nutritional needs and suggests optimal food combinations.',
+                'exercise': 'Fitness evolution uses advanced motion tracking and AI to provide real-time feedback on your workout form, suggest progressive training plans, and adapt to your fitness level.',
+                'mental': 'Mental wellness combines mindfulness techniques, stress pattern analysis, and personalized meditation programs to optimize your psychological well-being and emotional resilience.',
+                'hygiene': 'Hygiene tech includes smart monitoring systems that detect potential health risks, automated sanitization protocols, and personalized hygiene recommendations based on your lifestyle.'
+            };
+            
+            alert(details[topic] || 'More information coming soon!');
+        }
+
+        // Add keyboard support for search fields
+        document.addEventListener('DOMContentLoaded', function() {
+            const labSearch = document.getElementById('lab-search');
+            const diseaseSearch = document.getElementById('disease-search');
+            
+            if (labSearch) {
+                labSearch.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        searchLabValues();
+                    }
+                });
+            }
+            
+            if (diseaseSearch) {
+                diseaseSearch.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        searchDiseaseInfo();
+                    }
+                });
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9851d549564d472b',t:'MTc1ODg3OTk3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
