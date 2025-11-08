@@ -220,6 +220,12 @@
                         Contact
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
                     </a>
+                    <button class="flex-1 bg-gradient-to-r from-emerald-400 to-cyan-400 text-white px-4 py-2 rounded-xl hover:from-emerald-500 hover:to-cyan-500 transition-all duration-300 font-semibold"> 
+                        <a href="/Login.html" class="nav-link relative text-gray-300 hover:text-emerald-400 font-medium transition-all duration-300 group">
+                        Login
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    </button>
                 </nav>
                 <button class="md:hidden text-gray-300 hover:text-emerald-400 transition-colors" onclick="toggleMobileMenu()">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -801,8 +807,19 @@
 
     <script>
         // Initialize page on load
+        let user;
         const alertMessageBody = ``;
         const tipMessageBody   = ``;
+
+        window.onload = ()=>{
+            try{
+                user = JSON.parse(localStorage.getItem('UserDetails'));
+            }
+            catch(e){
+                console.log('Failed to get user details');
+            }
+            finally{}
+        }
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
             displayDefaultLabValues();
@@ -1717,4 +1734,5 @@
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9851d549564d472b',t:'MTc1ODg3OTk3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
